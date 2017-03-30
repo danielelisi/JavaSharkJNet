@@ -18,6 +18,7 @@ public class JavaSharkOpenFile {
 
         System.out.printf("Opening file for reading: %s%n", FILE);
 
+
         Pcap pcapFile = Pcap.openOffline(FILE, ERRBUFF);
 
         if (pcapFile == null) {
