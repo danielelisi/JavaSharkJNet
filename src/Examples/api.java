@@ -18,15 +18,15 @@ public class api {
         final Pcap pcapFile = Pcap.openOffline(WFILE, ERROR_BUFFER);
 
         // Read first 10 packets from wireshark file
-        pcapFile.loop(10, new JPacketHandler<StringBuilder>() {
-
-            final Tcp TCP = new Tcp();
-            final Http HTTP = new Http();
-
-
-
-
-        });
+//        pcapFile.loop(10, new JPacketHandler<StringBuilder>() {
+//
+//            final Tcp TCP = new Tcp();
+//            final Http HTTP = new Http();
+//
+//
+//
+//
+//        });
 
     }
 }
