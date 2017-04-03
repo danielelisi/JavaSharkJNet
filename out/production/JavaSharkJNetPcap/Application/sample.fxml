@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controller">
    <top>
       <HBox fillHeight="false" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
@@ -20,12 +19,12 @@
                </HBox.margin>
             </TextField>
             <Region HBox.hgrow="ALWAYS" />
-            <Button fx:id="selectButton" focusTraversable="false" mnemonicParsing="false" onAction="#chooseFile" text="Select File..">
+            <Button fx:id="selectButton" mnemonicParsing="false" onAction="#chooseFile" text="Select File..">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
             </Button>
-            <Button fx:id="loadButton" mnemonicParsing="false" text="Load File" />
+            <Button fx:id="loadButton" mnemonicParsing="false" onAction="#loadFile" text="Load File" />
          </children>
          <BorderPane.margin>
             <Insets />
@@ -36,11 +35,14 @@
       </HBox>
    </top>
    <center>
-      <TableView fx:id="tableview1" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="tableView" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn prefWidth="143.0" text="Destination" />
-          <TableColumn prefWidth="150.0" text="Retransmissions" />
+          <TableColumn fx:id="colDest" prefWidth="-1.0" text="Destination" />
+          <TableColumn fx:id="colRetrans" prefWidth="-1.0" text="Retransmissions" />
         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
       </TableView>
    </center>
 </BorderPane>
