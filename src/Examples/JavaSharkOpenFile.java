@@ -46,7 +46,7 @@ public class JavaSharkOpenFile {
 
                 Ip4 ip4 = new Ip4();
                 if (pcapPacket.hasHeader(ip4)) {
-                    System.out.println(FormatUtils.ip(ip4.destination()));
+
                 }
             }
         };

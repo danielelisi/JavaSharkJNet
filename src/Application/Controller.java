@@ -12,6 +12,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.FileChooser;
+import org.jnetpcap.packet.PcapPacket;
+import org.jnetpcap.packet.format.FormatUtils;
+import org.jnetpcap.protocol.network.Ip4;
+import org.jnetpcap.util.PcapPacketArrayList;
 
 import java.io.File;
 import java.net.URL;
@@ -32,6 +36,8 @@ public class Controller implements Initializable {
     private TableColumn<WirePackets, String> colDest;
     @FXML
     private TableColumn<WirePackets, Integer> colRetrans;
+
+    private String wirefile;
 
     // display/get data TableView
     public ObservableList<WirePackets> enteredWirePackets = FXCollections.observableArrayList();
@@ -55,6 +61,7 @@ public class Controller implements Initializable {
 
         if (selectedFile != null) {
             filePath.setText(selectedFile.getAbsolutePath());
+            wirefile = selectedFile.getAbsolutePath();
         } else {
             System.out.println("File is not selected.");
         }
@@ -62,8 +69,28 @@ public class Controller implements Initializable {
 
     // Load file button
     public void loadFile (ActionEvent event) {
-        enteredWirePackets.add(new WirePackets("192.168.0.1", 5));
-    }
 
+        PcapFile packet =new PcapFile(wirefile);
+
+        PcapPacketArrayList packetList = packet.readOfflineFiles();
+
+        int i = 1;
+
+        //Protocol
+        Ip4 ip = new Ip4();
+        String destIp;
+
+        for (PcapPacket item : packetList) {
+
+            if (item.hasHeader(ip)) {
+                destIp = FormatUtils.ip(item.getHeader(ip).destination());
+
+                enteredWirePackets.add(new WirePackets(destIp, i));
+                i++;
+
+            }
+
+        }
+    }
 
 }
