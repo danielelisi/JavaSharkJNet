@@ -6,11 +6,13 @@ package Application;
 public class WirePackets {
 
     private String destination;
-    private Integer retransmissions;
+    private Integer packets;
+    private Integer time;
 
-    public WirePackets(String destination, Integer retransmissions) {
+    public WirePackets(String destination, Integer packets, Integer time) {
         this.destination = destination;
-        this.retransmissions = retransmissions;
+        this.packets = packets;
+        this.time = time;
     }
 
     public String getDestination() {
@@ -21,11 +23,19 @@ public class WirePackets {
         this.destination = destination;
     }
 
-    public Integer getRetransmissions() {
-        return retransmissions;
+    public Integer getPackets() {
+        return packets;
     }
 
-    public void setRetransmissions(Integer retransmissions) {
-        this.retransmissions = retransmissions;
+    public void setPackets(Integer packets) {
+        this.packets = packets;
+    }
+
+    public Integer getTime() {
+        return time;
+    }
+
+    public void setTime(Integer time) {
+        this.time = time;
     }
 }

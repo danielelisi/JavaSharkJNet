@@ -33,9 +33,11 @@ public class Controller implements Initializable {
     @FXML
     private TableView<WirePackets> tableView;
     @FXML
-    private TableColumn<WirePackets, String> colDest;
+    private TableColumn<WirePackets, String> colServer;
     @FXML
-    private TableColumn<WirePackets, Integer> colRetrans;
+    private TableColumn<WirePackets, Integer> colPackets;
+    @FXML
+    private TableColumn<WirePackets, Integer> colTime;
 
     private String wirefile;
 
@@ -45,12 +47,13 @@ public class Controller implements Initializable {
     // "Controller constructor" set up tableview and columns connections
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        colDest.setCellValueFactory(new PropertyValueFactory<>("destination"));
-        colRetrans.setCellValueFactory(new PropertyValueFactory<>("retransmissions"));
+        colServer.setCellValueFactory(new PropertyValueFactory<>("destination"));
+        colPackets.setCellValueFactory(new PropertyValueFactory<>("retransmissions"));
+
 
         tableView.getColumns().clear();
         tableView.setItems(enteredWirePackets);
-        tableView.getColumns().addAll(colDest, colRetrans);
+        tableView.getColumns().addAll(colServer, colPackets,colTime);
     }
 
     // Select .pcap file ActionHandler
@@ -80,7 +83,10 @@ public class Controller implements Initializable {
         Ip4 ip = new Ip4();
         String destIp;
 
+
+
         for (PcapPacket item : packetList) {
+
 
             if (item.hasHeader(ip)) {
                 destIp = FormatUtils.ip(item.getHeader(ip).destination());

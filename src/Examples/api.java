@@ -13,6 +13,8 @@ import org.jnetpcap.packet.JPacket;
 import org.jnetpcap.packet.JPacketHandler;
 import org.jnetpcap.packet.JScanner;
 import org.jnetpcap.packet.PcapPacket;
+import org.jnetpcap.packet.format.FormatUtils;
+import org.jnetpcap.protocol.network.Ip4;
 import org.jnetpcap.protocol.tcpip.Http;
 import org.jnetpcap.protocol.tcpip.Tcp;
 
@@ -244,11 +246,14 @@ public class api {
                  */
 
                 List<JPacket> forward = flow.getForward();
+                System.out.print("Forward: ");
                 for (JPacket p : forward) {
-                    System.out.printf("%d, ", p.getFrameNumber());
+                    String dest = FormatUtils.ip(p.getHeader(new Ip4()).destination());
+                    System.out.printf("%d %s, ", p.getFrameNumber(), dest);
                 }
                 System.out.println();
 
+                System.out.print("Reverse: ");
                 List<JPacket> reverse = flow.getReverse();
                 for (JPacket p : reverse) {
                     System.out.printf("%d, ", p.getFrameNumber());
@@ -288,7 +293,7 @@ public class api {
          */
         pcap.loop(Pcap.LOOP_INFINITE, superFlowMap, null);
 
-        System.out.printf("superFlowMap::%s%n", superFlowMap);
+        System.out.printf("superFlowMap::%s%n", superFlowMap.toString());
 
         /*
          * Now we have read the remaining packets and we no longer need to keep the

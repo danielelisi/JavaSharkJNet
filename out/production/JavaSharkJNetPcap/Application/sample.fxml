@@ -5,11 +5,12 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controller">
    <top>
       <HBox fillHeight="false" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
@@ -24,7 +25,6 @@
                   <Insets />
                </HBox.margin>
             </Button>
-            <Button fx:id="loadButton" mnemonicParsing="false" onAction="#loadFile" text="Load File" />
          </children>
          <BorderPane.margin>
             <Insets />
@@ -45,4 +45,14 @@
          </columnResizePolicy>
       </TableView>
    </center>
+   <bottom>
+      <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <items>
+            <Button fx:id="loadButton" mnemonicParsing="false" onAction="#loadFile" text="Load File" />
+        </items>
+         <padding>
+            <Insets left="20.0" />
+         </padding>
+      </ToolBar>
+   </bottom>
 </BorderPane>
