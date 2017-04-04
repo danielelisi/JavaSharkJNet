@@ -1,6 +1,6 @@
 package Examples;
 
-import Application.PcapFile;
+import Application.PcapFileReader;
 import org.jnetpcap.packet.PcapPacket;
 import org.jnetpcap.packet.format.FormatUtils;
 import org.jnetpcap.protocol.network.Ip4;
@@ -13,9 +13,9 @@ public class main {
 
     public static void main(String[] args) {
 
-        PcapFile packet = new PcapFile("wireshark.pcap");
+        PcapFileReader packet = new PcapFileReader("wireshark.pcap");
 
-        PcapPacketArrayList mylist = packet.readOfflineFiles();
+        PcapPacketArrayList mylist = packet.setPacketList();
 
         int i = 1;
         Ip4 ip = new Ip4();

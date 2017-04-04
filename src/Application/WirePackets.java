@@ -9,6 +9,11 @@ public class WirePackets {
     private Integer packets;
     private Integer time;
 
+    public WirePackets(String destination, Integer packets) {
+        this.destination = destination;
+        this.packets = packets;
+    }
+
     public WirePackets(String destination, Integer packets, Integer time) {
         this.destination = destination;
         this.packets = packets;

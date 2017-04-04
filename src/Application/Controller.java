@@ -73,9 +73,9 @@ public class Controller implements Initializable {
     // Load file button
     public void loadFile (ActionEvent event) {
 
-        PcapFile packet =new PcapFile(wirefile);
+        PcapFileReader packet = new PcapFileReader(wirefile);
 
-        PcapPacketArrayList packetList = packet.readOfflineFiles();
+        PcapPacketArrayList packetList = packet.setPacketList();
 
         int i = 1;
 
