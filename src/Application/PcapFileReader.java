@@ -29,7 +29,7 @@ public class PcapFileReader {
     public PcapFileReader(String FileAddress) {
         this.FileAddress = FileAddress;
         this.packetList = setPacketList();
-        this.flows = setFlows();
+//        this.flows = setFlows();
     }
 
 

@@ -53,7 +53,7 @@ public class Controller implements Initializable {
 
         tableView.getColumns().clear();
         tableView.setItems(enteredWirePackets);
-        tableView.getColumns().addAll(colServer, colPackets,colTime);
+        tableView.getColumns().addAll(colServer, colPackets, colTime);
     }
 
     // Select .pcap file ActionHandler
@@ -83,19 +83,13 @@ public class Controller implements Initializable {
         Ip4 ip = new Ip4();
         String destIp;
 
-
-
         for (PcapPacket item : packetList) {
-
-
             if (item.hasHeader(ip)) {
                 destIp = FormatUtils.ip(item.getHeader(ip).destination());
 
                 enteredWirePackets.add(new WirePackets(destIp, i));
                 i++;
-
             }
-
         }
     }
 
