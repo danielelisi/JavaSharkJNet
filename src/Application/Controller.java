@@ -1,6 +1,7 @@
 package Application;
 
 
+import Examples.PcapFileReader;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -39,8 +40,6 @@ public class Controller implements Initializable {
     @FXML
     private TableColumn<WirePackets, Integer> colTime;
 
-    private String wirefile;
-
     // display/get data TableView
     public ObservableList<WirePackets> enteredWirePackets = FXCollections.observableArrayList();
 
@@ -64,33 +63,18 @@ public class Controller implements Initializable {
 
         if (selectedFile != null) {
             filePath.setText(selectedFile.getAbsolutePath());
-            wirefile = selectedFile.getAbsolutePath();
+            PcapPacketArrayList packets  = FileReader.getArray(selectedFile.getAbsolutePath());
         } else {
-            System.out.println("File is not selected.");
+            filePath.setText("File not selected.");
         }
     }
 
     // Load file button
     public void loadFile (ActionEvent event) {
 
-        PcapFileReader packet = new PcapFileReader(wirefile);
+        PcapPacketArrayList packetList = new PcapFileReader(filePath.getText()).setPacketList();
+        StreamFlows streams = new StreamFlows(packetList);
 
-        PcapPacketArrayList packetList = packet.setPacketList();
 
-        int i = 1;
-
-        //Protocol
-        Ip4 ip = new Ip4();
-        String destIp;
-
-        for (PcapPacket item : packetList) {
-            if (item.hasHeader(ip)) {
-                destIp = FormatUtils.ip(item.getHeader(ip).destination());
-
-                enteredWirePackets.add(new WirePackets(destIp, i));
-                i++;
-            }
-        }
     }
-
 }
