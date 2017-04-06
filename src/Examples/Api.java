@@ -28,7 +28,8 @@ import org.jnetpcap.protocol.tcpip.Tcp;
  * @author Mark Bednarczyk
  * @author Sly Technologies, Inc.
  */
-public class api {
+
+public class Api {
 
     /**
      * Various examples
