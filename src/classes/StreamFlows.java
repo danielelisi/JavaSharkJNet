@@ -1,4 +1,4 @@
-package Application;
+package classes;
 
 import org.jnetpcap.packet.JFlow;
 import org.jnetpcap.packet.JFlowKey;

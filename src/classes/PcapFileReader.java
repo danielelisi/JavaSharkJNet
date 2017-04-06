@@ -1,4 +1,4 @@
-package Examples;
+package classes;
 
 import org.jnetpcap.*;
 import org.jnetpcap.packet.*;
@@ -17,12 +17,11 @@ public class PcapFileReader {
 
     public PcapFileReader(String FileAddress) {
         this.FileAddress = FileAddress;
-
     }
 
 
     // Read pcap file and return PcapPacketArray
-    public PcapPacketArrayList setPacketList() {
+    public PcapPacketArrayList loadPacketList() {
         final StringBuilder ERRBUFF = new StringBuilder();
         Pcap pcapFile = Pcap.openOffline(FileAddress, ERRBUFF);
 

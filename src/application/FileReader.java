@@ -1,4 +1,4 @@
-package Application;
+package application;
 
 import org.jnetpcap.Pcap;
 import org.jnetpcap.packet.PcapPacket;

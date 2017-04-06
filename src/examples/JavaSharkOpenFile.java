@@ -1,12 +1,9 @@
-package Examples;
+package examples;
 
 import org.jnetpcap.Pcap;
 import org.jnetpcap.packet.PcapPacket;
 import org.jnetpcap.packet.PcapPacketHandler;
-import org.jnetpcap.packet.format.FormatUtils;
 import org.jnetpcap.protocol.network.Ip4;
-
-import java.util.Date;
 
 
 public class JavaSharkOpenFile {

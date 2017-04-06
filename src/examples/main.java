@@ -1,7 +1,7 @@
-package Examples;
+package examples;
 
+import classes.PcapFileReader;
 import org.jnetpcap.packet.PcapPacket;
-import org.jnetpcap.packet.format.FormatUtils;
 import org.jnetpcap.protocol.network.Ip4;
 import org.jnetpcap.protocol.network.Ip6;
 import org.jnetpcap.protocol.tcpip.Tcp;
@@ -14,7 +14,7 @@ public class main {
 
     public static void main(String[] args) {
 
-        PcapPacketArrayList packetList = new PcapFileReader("wireshark3.pcap").setPacketList();
+        PcapPacketArrayList packetList = new PcapFileReader("wireshark3.pcap").loadPacketList();
 
         // Protocols Init
         int i = 1;

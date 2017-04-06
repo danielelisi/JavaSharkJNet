@@ -1,7 +1,9 @@
-package Application;
+package application;
 
 
-import Examples.PcapFileReader;
+import classes.PcapFileReader;
+import classes.StreamFlows;
+import classes.WirePackets;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -13,9 +15,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.FileChooser;
-import org.jnetpcap.packet.PcapPacket;
-import org.jnetpcap.packet.format.FormatUtils;
-import org.jnetpcap.protocol.network.Ip4;
 import org.jnetpcap.util.PcapPacketArrayList;
 
 import java.io.File;
@@ -72,8 +71,7 @@ public class Controller implements Initializable {
     // Load file button
     public void loadFile (ActionEvent event) {
 
-        PcapPacketArrayList packetList = new PcapFileReader(filePath.getText()).setPacketList();
-        StreamFlows streams = new StreamFlows(packetList);
+        PacketsProcessor processor = new PacketsProcessor(filePath.getText());
 
 
     }
