@@ -13,15 +13,8 @@ import org.jnetpcap.util.PcapPacketArrayList;
 
 public class PcapFileReader {
 
-    private String FileAddress;
-
-    public PcapFileReader(String FileAddress) {
-        this.FileAddress = FileAddress;
-    }
-
-
     // Read pcap file and return PcapPacketArray
-    public PcapPacketArrayList loadPacketList() {
+    public static PcapPacketArrayList loadPacketList(String FileAddress) {
         final StringBuilder ERRBUFF = new StringBuilder();
         Pcap pcapFile = Pcap.openOffline(FileAddress, ERRBUFF);
 

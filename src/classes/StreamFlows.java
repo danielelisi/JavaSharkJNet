@@ -14,9 +14,8 @@ import java.util.Map;
  */
 public class StreamFlows {
 
-    ArrayList<JFlow> flowsList;
 
-    public StreamFlows (PcapPacketArrayList packetsList) {
+    public static ArrayList<JFlow> getFlows(PcapPacketArrayList packetsList) {
 
         final Map<JFlowKey, JFlow> STREAM_FLOWS = new HashMap<>();
         for (PcapPacket packet : packetsList) {
@@ -30,11 +29,6 @@ public class StreamFlows {
             flow.add(new PcapPacket(packet));
         }
 
-        flowsList = new ArrayList<>(STREAM_FLOWS.values());
+        return new ArrayList<>(STREAM_FLOWS.values());
     }
-
-    public ArrayList<JFlow> getFlows () {
-        return flowsList;
-    }
-
 }

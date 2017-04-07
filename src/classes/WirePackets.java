@@ -1,46 +1,93 @@
 package classes;
 
+import java.util.Date;
+
 /**
  * Created by danielelisi on 2017-04-02.
  */
 public class WirePackets {
 
-    private String destination;
-    private Integer packets;
-    private Integer time;
+    private Integer frameNumber;
+    private String ipSource;
+    private String ipDestination;
+    private Integer portSource = null;
+    private Integer portDestination = null;
+    private String checksum = null;
+    private Integer byteSize;
+    private Date date;
 
-    public WirePackets(String destination, Integer packets) {
-        this.destination = destination;
-        this.packets = packets;
+    public WirePackets(Integer frameNumber, String ipSource, String ipDestination, Integer portSource, Integer portDestination, String checksum, Integer byteSize, Date date) {
+        this.frameNumber = frameNumber;
+        this.ipSource = ipSource;
+        this.ipDestination = ipDestination;
+        this.portSource = portSource;
+        this.portDestination = portDestination;
+        this.checksum = checksum;
+        this.byteSize = byteSize;
+        this.date = date;
     }
 
-    public WirePackets(String destination, Integer packets, Integer time) {
-        this.destination = destination;
-        this.packets = packets;
-        this.time = time;
+    public Integer getFrameNumber() {
+        return frameNumber;
     }
 
-    public String getDestination() {
-        return destination;
+    public void setFrameNumber(Integer frameNumber) {
+        this.frameNumber = frameNumber;
     }
 
-    public void setDestination(String destination) {
-        this.destination = destination;
+    public String getIpSource() {
+        return ipSource;
     }
 
-    public Integer getPackets() {
-        return packets;
+    public void setIpSource(String ipSource) {
+        this.ipSource = ipSource;
     }
 
-    public void setPackets(Integer packets) {
-        this.packets = packets;
+    public String getIpDestination() {
+        return ipDestination;
     }
 
-    public Integer getTime() {
-        return time;
+    public void setIpDestination(String ipDestination) {
+        this.ipDestination = ipDestination;
     }
 
-    public void setTime(Integer time) {
-        this.time = time;
+    public Integer getPortSource() {
+        return portSource;
+    }
+
+    public void setPortSource(Integer portSource) {
+        this.portSource = portSource;
+    }
+
+    public Integer getPortDestination() {
+        return portDestination;
+    }
+
+    public void setPortDestination(Integer portDestination) {
+        this.portDestination = portDestination;
+    }
+
+    public String getChecksum() {
+        return checksum;
+    }
+
+    public void setChecksum(String checksum) {
+        this.checksum = checksum;
+    }
+
+    public Integer getByteSize() {
+        return byteSize;
+    }
+
+    public void setByteSize(Integer byteSize) {
+        this.byteSize = byteSize;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }

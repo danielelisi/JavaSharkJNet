@@ -14,7 +14,7 @@ public class main {
 
     public static void main(String[] args) {
 
-        PcapPacketArrayList packetList = new PcapFileReader("wireshark3.pcap").loadPacketList();
+        PcapPacketArrayList packetList = PcapFileReader.loadPacketList(("pcap_files/wireshark3.pcap"));
 
         // Protocols Init
         int i = 1;

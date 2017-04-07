@@ -4,6 +4,7 @@ package application;
 import classes.PcapFileReader;
 import classes.StreamFlows;
 import classes.WirePackets;
+import com.sun.xml.internal.bind.v2.runtime.reflect.Lister;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,7 +19,9 @@ import javafx.stage.FileChooser;
 import org.jnetpcap.util.PcapPacketArrayList;
 
 import java.io.File;
+import java.lang.reflect.Array;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -72,7 +75,11 @@ public class Controller implements Initializable {
     public void loadFile (ActionEvent event) {
 
         PacketsProcessor processor = new PacketsProcessor(filePath.getText());
+        ArrayList<PacketInfo> packetsList = processor.getInfoList();
 
+        for (PacketInfo packet : packetsList) {
+
+        }
 
     }
 }
