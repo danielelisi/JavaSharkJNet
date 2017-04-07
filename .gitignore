@@ -46,4 +46,4 @@ crashlytics-build.properties
 fabric.properties
 
 # Library
-lib
+/lib/
