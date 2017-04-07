@@ -1,15 +1,12 @@
 package application;
 
+import classes.PacketInfo;
 import classes.PcapFileReader;
-import classes.StreamFlows;
-import org.jnetpcap.Pcap;
-import org.jnetpcap.packet.JFlow;
 import org.jnetpcap.packet.PcapPacket;
 import org.jnetpcap.packet.format.FormatUtils;
 import org.jnetpcap.protocol.lan.Ethernet;
 import org.jnetpcap.protocol.network.Ip4;
 import org.jnetpcap.protocol.network.Ip6;
-import org.jnetpcap.protocol.tcpip.Http;
 import org.jnetpcap.protocol.tcpip.Tcp;
 import org.jnetpcap.util.PcapPacketArrayList;
 
