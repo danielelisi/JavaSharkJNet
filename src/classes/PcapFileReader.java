@@ -11,9 +11,9 @@ import org.jnetpcap.util.PcapPacketArrayList;
  * @date 2017-04-03
  */
 
+// Read pcap file and return PcapPacketArray
 public class PcapFileReader {
 
-    // Read pcap file and return PcapPacketArray
     public static PcapPacketArrayList loadPacketList(String FileAddress) {
         final StringBuilder ERRBUFF = new StringBuilder();
         Pcap pcapFile = Pcap.openOffline(FileAddress, ERRBUFF);

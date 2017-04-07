@@ -80,7 +80,6 @@ public class StartupViewController implements Initializable {
 
         if (selectedFile != null) {
             filePath.setText(selectedFile.getAbsolutePath());
-            PcapPacketArrayList packets  = FileReader.getArray(selectedFile.getAbsolutePath());
         } else {
             filePath.setText("File not selected.");
         }
@@ -90,9 +89,11 @@ public class StartupViewController implements Initializable {
     public void loadFile (ActionEvent event) {
 
         PacketsProcessor processor = new PacketsProcessor(filePath.getText());
+        // This ArrayList stores PacketInfo objects so the controller can loop trough it and retrieve values to construct WirePackets
         ArrayList<PacketInfo> packetsList = processor.getInfoList();
 
         int frameNumber = 1;
+        // Iterate and create WirePackets objects for the GUI
         for (PacketInfo packet : packetsList) {
             enteredWirePackets.add(new WirePackets(
                     frameNumber,
@@ -106,6 +107,5 @@ public class StartupViewController implements Initializable {
 
             frameNumber++;
         }
-
     }
 }

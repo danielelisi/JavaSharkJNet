@@ -5,6 +5,8 @@ import java.util.Date;
 /**
  * Created by danielelisi on 2017-04-02.
  */
+
+// Creates Objects for the TableView GUI
 public class WirePackets {
 
     private Integer frameNumber;

@@ -12,8 +12,9 @@ import java.util.Map;
 /**
  * Created by danielelisi on 2017-04-05.
  */
-public class StreamFlows {
 
+// NOT IN USE
+public class StreamFlows {
 
     public static ArrayList<JFlow> getFlows(PcapPacketArrayList packetsList) {
 

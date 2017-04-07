@@ -25,6 +25,7 @@ public class PacketsProcessor {
     private PcapPacketArrayList packetList;
     private ArrayList<PacketInfo> infoList = new ArrayList<>();
 
+    // Constructor load the ArrayList<PacketInfo> so the controller can retrieve it with a GET method
     public PacketsProcessor(String filepath) {
         this.filePath = filepath;
         setPacketList();
@@ -47,9 +48,8 @@ public class PacketsProcessor {
         return infoList;
     }
 
-
+    // TEST ONLY Prints Statistics in the terminal
     public void printPacket() {
-
         // Protocol Initialization
         Ethernet eth = new Ethernet();
         Ip4 ip4 = new Ip4();

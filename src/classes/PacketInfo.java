@@ -11,6 +11,8 @@ import java.util.Date;
 /**
  * Created by danielelisi on 2017-04-06.
  */
+
+// Class create new Packet object and uses GET methods to retrieve singular packet statistic
 public class PacketInfo {
 
     private PcapPacket packet;
@@ -26,6 +28,7 @@ public class PacketInfo {
     Ip6 ip6 = new Ip6();
     Tcp tcp = new Tcp();
 
+    // Constructor load each PacketInfo object's fields with values
     public PacketInfo(PcapPacket packet) {
         this.packet=packet;
 
