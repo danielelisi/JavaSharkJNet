@@ -7,14 +7,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.FileChooser;
-import org.jnetpcap.util.PcapPacketArrayList;
+import javafx.stage.Stage;
 
 import java.io.File;
 import java.net.URL;
@@ -25,12 +28,16 @@ import java.util.ResourceBundle;
 public class StartupViewController implements Initializable {
 
     // Elements References
+
+    static public String fileaddress;
+
+
     @FXML
     private Button selectButton;
     @FXML
     private Button loadButton;
     @FXML
-    private TextField filePath;
+    public TextField filePath;
     @FXML
     private TableView<WirePackets> tableView;
     @FXML
@@ -83,6 +90,7 @@ public class StartupViewController implements Initializable {
         } else {
             filePath.setText("File not selected.");
         }
+        fileaddress = filePath.getText();
     }
 
     // Load file button
@@ -108,4 +116,16 @@ public class StartupViewController implements Initializable {
             frameNumber++;
         }
     }
+
+    //Chart button
+    public void Chart (ActionEvent event)throws Exception{
+        Stage chartStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("Piechart.fxml"));
+        chartStage.setTitle("JavaShark");
+        chartStage.setScene(new Scene(root));
+        chartStage.show();
+    }
+
+
+
 }
