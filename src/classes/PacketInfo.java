@@ -5,6 +5,7 @@ import org.jnetpcap.packet.format.FormatUtils;
 import org.jnetpcap.protocol.network.Ip4;
 import org.jnetpcap.protocol.network.Ip6;
 import org.jnetpcap.protocol.tcpip.Tcp;
+import org.jnetpcap.protocol.tcpip.Udp;
 
 import java.util.Date;
 
@@ -24,9 +25,11 @@ public class PacketInfo {
     private Integer packetSize;
     private Date date;
 
+
     Ip4 ip4 = new Ip4();
     Ip6 ip6 = new Ip6();
     Tcp tcp = new Tcp();
+    Udp udp = new Udp();
 
     // Constructor load each PacketInfo object's fields with values
     public PacketInfo(PcapPacket packet) {
@@ -60,6 +63,21 @@ public class PacketInfo {
 
         date = new Date(packet.getCaptureHeader().timestampInMillis());
     }
+    public Integer countUdp(){
+        if (packet.hasHeader(udp)){
+            return 1;
+        } else
+            return 0;
+    }
+
+    public Integer countTcp(){
+        if (packet.hasHeader(tcp)){
+            return 1;
+        } else
+            return 0;
+    }
+
+
 
     public PcapPacket getPacket() {
         return packet;
