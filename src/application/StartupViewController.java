@@ -96,6 +96,7 @@ public class StartupViewController implements Initializable {
     // Load file button
     public void loadFile (ActionEvent event) {
 
+        enteredWirePackets.clear();
         PacketsProcessor processor = new PacketsProcessor(filePath.getText());
         // This ArrayList stores PacketInfo objects so the controller can loop trough it and retrieve values to construct WirePackets
         ArrayList<PacketInfo> packetsList = processor.getInfoList();
