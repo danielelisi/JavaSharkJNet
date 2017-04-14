@@ -2,6 +2,9 @@ package classes;
 
 import org.jnetpcap.packet.PcapPacket;
 import org.jnetpcap.packet.format.FormatUtils;
+import org.jnetpcap.protocol.lan.Ethernet;
+import org.jnetpcap.protocol.network.Arp;
+import org.jnetpcap.protocol.network.Icmp;
 import org.jnetpcap.protocol.network.Ip4;
 import org.jnetpcap.protocol.network.Ip6;
 import org.jnetpcap.protocol.tcpip.Tcp;
@@ -30,6 +33,9 @@ public class PacketInfo {
     Ip6 ip6 = new Ip6();
     Tcp tcp = new Tcp();
     Udp udp = new Udp();
+    Arp arp = new Arp();
+    Ethernet eth = new Ethernet();
+    Icmp icmp = new Icmp();
 
     // Constructor load each PacketInfo object's fields with values
     public PacketInfo(PcapPacket packet) {
@@ -57,6 +63,16 @@ public class PacketInfo {
             portSource = null;
             portDestination = null;
             checksum = "No TCP Header";
+        }
+
+        if(packet.hasHeader(arp) && packet.hasHeader(eth)){
+            ipSource = FormatUtils.mac(eth.source());
+            ipDestination = FormatUtils.mac(eth.destination());
+            checksum = "ARP Packet";
+        }
+
+        if(packet.hasHeader(icmp)) {
+            checksum = "ICMP Packet";
         }
 
         packetSize = packet.getCaptureHeader().caplen();

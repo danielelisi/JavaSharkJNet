@@ -16,18 +16,18 @@ public class TerminalTest {
 
         PacketsProcessor processor = new PacketsProcessor("pcap_files/test.pcap");
         //processor.printFlows();
-        //processor.printPacket();
+        processor.printPacket();
 
-        ArrayList<PacketInfo> infoList = processor.getInfoList();
-
-        int i = 1;
-        for (PacketInfo packet : infoList) {
-
-
-            System.out.println("Frame " + i);
-            System.out.println(packet.getIpSource());
-            i++;
-        }
+//        ArrayList<PacketInfo> infoList = processor.getInfoList();
+//
+//        int i = 1;
+//        for (PacketInfo packet : infoList) {
+//
+//
+//            System.out.println("Frame " + i);
+//            System.out.println(packet.getIpSource());
+//            i++;
+//        }
 
     }
 }

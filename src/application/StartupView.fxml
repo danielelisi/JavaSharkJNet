@@ -18,8 +18,7 @@
                   <Insets />
                </HBox.margin>
             </Button>
-            <Button fx:id="loadButton" mnemonicParsing="false" onAction="#loadFile" text="Load File" />
-            <Button mnemonicParsing="false" onAction="#Chart" text="Tcp/Udp" />
+            <Button mnemonicParsing="false" onAction="#Chart" text="Statistics" />
             <Region HBox.hgrow="ALWAYS" />
             <TextField fx:id="filePath" editable="false" focusTraversable="false" prefWidth="300.0" promptText=".pcap file path..">
                <HBox.margin>

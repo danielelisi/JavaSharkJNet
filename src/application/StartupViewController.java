@@ -35,8 +35,6 @@ public class StartupViewController implements Initializable {
     @FXML
     private Button selectButton;
     @FXML
-    private Button loadButton;
-    @FXML
     public TextField filePath;
     @FXML
     private TableView<WirePackets> tableView;
@@ -91,10 +89,6 @@ public class StartupViewController implements Initializable {
             filePath.setText("File not selected.");
         }
         fileaddress = filePath.getText();
-    }
-
-    // Load file button
-    public void loadFile (ActionEvent event) {
 
         enteredWirePackets.clear();
         PacketsProcessor processor = new PacketsProcessor(filePath.getText());
