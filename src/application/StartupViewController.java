@@ -25,6 +25,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
 
+/*
+ * Set 2A
+ * Daniele Lisi
+ * Rui Guo
+ * Sweeha Arya
+ */
+
 public class StartupViewController implements Initializable {
 
     // Elements References

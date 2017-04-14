@@ -1,5 +1,12 @@
 package application;
 
+/*
+ * Set 2A
+ * Daniele Lisi
+ * Rui Guo
+ * Sweeha Arya
+ */
+
 /**
  * This class implements a Singleton pattern (see Wikipedia Singleton for more info). Recall that a singleton only
  * ever has one instance, and it is globally available.

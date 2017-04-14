@@ -1,5 +1,12 @@
 package application;
 
+/*
+ * Set 2A
+ * Daniele Lisi
+ * Rui Guo
+ * Sweeha Arya
+ */
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

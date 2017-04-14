@@ -13,6 +13,13 @@ import org.jnetpcap.util.PcapPacketArrayList;
 import java.util.ArrayList;
 import java.util.Date;
 
+/*
+ * Set 2A
+ * Daniele Lisi
+ * Rui Guo
+ * Sweeha Arya
+ */
+
 /**
  * ACIT 2515 JavaSharkJNet
  *
